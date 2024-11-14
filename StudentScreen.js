@@ -14,8 +14,8 @@ export default function StudentScreen() {
   const [locationPermission, setLocationPermission] = useState(false);
 
   const targetLocation = {
-    latitude: 41.1066,
-    longitude: -80.6481
+    latitude: 41.113290,
+    longitude: -80.645860
   };
 
   // Request permissions for the camera and location
@@ -134,15 +134,7 @@ export default function StudentScreen() {
                 <Text style={styles.buttonText}>Submit</Text>
               </TouchableOpacity>
             ) : (
-              <View>
-                <Text style={styles.errorText}>You are not at the correct location, but your submission has been recorded.</Text>
-                <TouchableOpacity
-                  style={styles.button}
-                  onPress={() => Alert.alert('Submitted!', `Name: ${name}\nQR Data: ${qrData}`)}
-                >
-                  <Text style={styles.buttonText}>Submit Anyway</Text>
-                </TouchableOpacity>
-              </View>
+              <Text style={styles.errorText}>You are not at the correct location. Please try again.</Text>
             )
           ) : (
             <Text style={styles.errorText}>Location permission not granted.</Text>
